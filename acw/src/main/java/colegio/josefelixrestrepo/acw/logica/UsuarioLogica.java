@@ -18,6 +18,7 @@ public class UsuarioLogica {
         entityManager = ConexionDatos.entityManagerFactory.createEntityManager();
     }
 
+    //Esto es un comentario
     public String registrarUsuario(String cedula, String nombre, String apellido, String edad, String correo, String username, String password, String confirmarPassword, String telefono){
 
         if(validacionesUtil.esVacio(cedula)){
