@@ -42,7 +42,6 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
         campoNombres = new javax.swing.JTextField();
         campoCedula = new javax.swing.JTextField();
         etiquetaCedula = new javax.swing.JLabel();
-        campoContrasenia = new javax.swing.JTextField();
         etiquetaTelefono = new javax.swing.JLabel();
         campoTelefono = new javax.swing.JTextField();
         botonCancelar = new javax.swing.JButton();
@@ -51,6 +50,7 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
         etiquetaUsuario = new javax.swing.JLabel();
         campoUsername = new javax.swing.JTextField();
         etiquetaResultado = new javax.swing.JLabel();
+        campoContrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -94,8 +94,6 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
         etiquetaCedula.setText("Cedula:");
         getContentPane().add(etiquetaCedula);
         etiquetaCedula.setBounds(20, 170, 70, 14);
-        getContentPane().add(campoContrasenia);
-        campoContrasenia.setBounds(100, 230, 180, 20);
 
         etiquetaTelefono.setText("Telefono:");
         getContentPane().add(etiquetaTelefono);
@@ -144,10 +142,12 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
         getContentPane().add(campoUsername);
         campoUsername.setBounds(100, 110, 180, 20);
         getContentPane().add(etiquetaResultado);
-        etiquetaResultado.setBounds(20, 350, 300, 0);
+        etiquetaResultado.setBounds(20, 330, 300, 20);
+        getContentPane().add(campoContrasenia);
+        campoContrasenia.setBounds(100, 230, 180, 20);
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void campoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombresActionPerformed
         // TODO add your handling code here:

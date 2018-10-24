@@ -37,12 +37,12 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
         etiquetaConfirmarPassword = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         campoCorreo = new javax.swing.JTextField();
-        campoPassword = new javax.swing.JTextField();
-        campoConfirmacionPassword = new javax.swing.JTextField();
         botonRegistrar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         etiquetaResultado = new javax.swing.JLabel();
+        campoPassword = new javax.swing.JPasswordField();
+        campoConfirmacionPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -51,7 +51,7 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
         getContentPane().add(etiquetaUsuario);
         etiquetaUsuario.setBounds(20, 70, 130, 14);
 
-        etiquetaPassword.setText("Password:");
+        etiquetaPassword.setText("Contraseña");
         getContentPane().add(etiquetaPassword);
         etiquetaPassword.setBounds(20, 130, 100, 14);
 
@@ -59,7 +59,7 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
         getContentPane().add(etiquetaCorreo);
         etiquetaCorreo.setBounds(20, 100, 130, 14);
 
-        etiquetaConfirmarPassword.setText("Confirmar Password:");
+        etiquetaConfirmarPassword.setText("Confirmar Contraseña");
         getContentPane().add(etiquetaConfirmarPassword);
         etiquetaConfirmarPassword.setBounds(20, 160, 140, 14);
 
@@ -72,16 +72,6 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
         campoUsuario.setBounds(160, 70, 130, 20);
         getContentPane().add(campoCorreo);
         campoCorreo.setBounds(160, 100, 130, 20);
-
-        campoPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPasswordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(campoPassword);
-        campoPassword.setBounds(160, 130, 130, 20);
-        getContentPane().add(campoConfirmacionPassword);
-        campoConfirmacionPassword.setBounds(160, 160, 130, 20);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +96,11 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(90, 20, 200, 29);
         getContentPane().add(etiquetaResultado);
-        etiquetaResultado.setBounds(20, 270, 290, 0);
+        etiquetaResultado.setBounds(20, 260, 290, 20);
+        getContentPane().add(campoPassword);
+        campoPassword.setBounds(160, 130, 130, 20);
+        getContentPane().add(campoConfirmacionPassword);
+        campoConfirmacionPassword.setBounds(160, 160, 130, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

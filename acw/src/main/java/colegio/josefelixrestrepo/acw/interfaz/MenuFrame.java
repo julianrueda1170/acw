@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package colegiojosefelix;
-
-import java.awt.HeadlessException;
+package colegio.josefelixrestrepo.acw.interfaz;
 
 /**
  *
@@ -19,9 +17,9 @@ public class MenuFrame extends javax.swing.JFrame {
      * Creates new form MenuFrame
      */
     
-        public MenuFrame(MenuContactoPanel MenuContactoPanel) {
+        public MenuFrame() {
         initComponents();
-        this.MenuContactoPanel = menuContactoPanel;
+
 
         setSize(500, 500);
     }
@@ -101,23 +99,20 @@ public class MenuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactoActionPerformed
-        // TODO add your handling code here:
-                this.setVisible(false);
-                this.menuContactoPanel.setVisible(true);
+    private void ContactoActionPerformed(java.awt.event.ActionEvent evt) {
 
-    }//GEN-LAST:event_ContactoActionPerformed
+
+
+    }
         public static void main(String... args){
         
-        MenuFrame menuFrame = new menuFrame();
+        MenuFrame menuFrame = new MenuFrame();
         menuFrame.setVisible(true);
-    }
-    public MenuFrame() throws HeadlessException {
     }
     /**
      * @param args the command line arguments
      */
-   private MenuContactoPanel menuContactoPanel; 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Contacto;

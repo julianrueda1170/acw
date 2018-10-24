@@ -58,12 +58,6 @@
       <version>6.0.6</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>colegio.josefelixrestrepo.acw</groupId>
-      <artifactId>acw</artifactId>
-      <version>1.0</version>
-      <type>jar</type>
-    </dependency>
   </dependencies>
 
   <build>
