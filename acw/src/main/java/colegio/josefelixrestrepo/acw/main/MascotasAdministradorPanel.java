@@ -27,10 +27,84 @@ public class MascotasAdministradorPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        etiquetaNombreAnimal = new javax.swing.JLabel();
+        etiquetaIngresoAnimal = new javax.swing.JLabel();
+        etiquetaRazaAnimal = new javax.swing.JLabel();
+        etiquetaAlturaAnimal = new javax.swing.JLabel();
+        etiquetaIdAnimal = new javax.swing.JLabel();
+        botonIngresarMascotas = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        campoAlturaIngresar = new javax.swing.JTextField();
+        campoRazaIngresar = new javax.swing.JTextField();
+        campoNombreIngresar = new javax.swing.JTextField();
+        campoIdAnimalIngresar = new javax.swing.JTextField();
+        campoFechaIngreso = new javax.swing.JTextField();
+
+        jLabel2.setText("jLabel2");
+
         setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("Ingresar mascotas ");
+        add(jLabel1);
+        jLabel1.setBounds(90, 10, 230, 50);
+
+        etiquetaNombreAnimal.setText("Nombre");
+        add(etiquetaNombreAnimal);
+        etiquetaNombreAnimal.setBounds(30, 100, 70, 16);
+
+        etiquetaIngresoAnimal.setText("Fecha de ingreso");
+        add(etiquetaIngresoAnimal);
+        etiquetaIngresoAnimal.setBounds(30, 130, 110, 16);
+
+        etiquetaRazaAnimal.setText("Raza");
+        add(etiquetaRazaAnimal);
+        etiquetaRazaAnimal.setBounds(30, 150, 70, 16);
+
+        etiquetaAlturaAnimal.setText("Altura");
+        add(etiquetaAlturaAnimal);
+        etiquetaAlturaAnimal.setBounds(30, 180, 60, 16);
+
+        etiquetaIdAnimal.setText("Id animal");
+        add(etiquetaIdAnimal);
+        etiquetaIdAnimal.setBounds(30, 70, 80, 16);
+
+        botonIngresarMascotas.setText("Agregar");
+        add(botonIngresarMascotas);
+        botonIngresarMascotas.setBounds(230, 220, 90, 32);
+
+        botonCancelar.setText("Cancelar");
+        add(botonCancelar);
+        botonCancelar.setBounds(70, 220, 100, 32);
+        add(campoAlturaIngresar);
+        campoAlturaIngresar.setBounds(190, 180, 170, 24);
+        add(campoRazaIngresar);
+        campoRazaIngresar.setBounds(190, 150, 170, 24);
+        add(campoNombreIngresar);
+        campoNombreIngresar.setBounds(190, 90, 170, 24);
+        add(campoIdAnimalIngresar);
+        campoIdAnimalIngresar.setBounds(190, 60, 170, 24);
+        add(campoFechaIngreso);
+        campoFechaIngreso.setBounds(190, 120, 170, 24);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonIngresarMascotas;
+    private javax.swing.JTextField campoAlturaIngresar;
+    private javax.swing.JTextField campoFechaIngreso;
+    private javax.swing.JTextField campoIdAnimalIngresar;
+    private javax.swing.JTextField campoNombreIngresar;
+    private javax.swing.JTextField campoRazaIngresar;
+    private javax.swing.JLabel etiquetaAlturaAnimal;
+    private javax.swing.JLabel etiquetaIdAnimal;
+    private javax.swing.JLabel etiquetaIngresoAnimal;
+    private javax.swing.JLabel etiquetaNombreAnimal;
+    private javax.swing.JLabel etiquetaRazaAnimal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

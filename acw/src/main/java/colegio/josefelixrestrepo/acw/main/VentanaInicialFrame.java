@@ -18,6 +18,7 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         initComponents();
         registroUsuarioFrame = new RegistroUsuarioFrame(this);
         administradorFrame = new RegistrarAdministradorFrame(this);
+        menuFrame = new MenuFrame(this);
         setSize(500, 500);
     }
 
@@ -50,7 +51,7 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonUsuario);
-        botonUsuario.setBounds(40, 240, 110, 23);
+        botonUsuario.setBounds(40, 240, 110, 32);
 
         botonAdministrador.setText("Administrador");
         botonAdministrador.addActionListener(new java.awt.event.ActionListener() {
@@ -59,31 +60,36 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonAdministrador);
-        botonAdministrador.setBounds(230, 240, 130, 23);
+        botonAdministrador.setBounds(230, 240, 130, 32);
 
         jLabel1.setText("Registar");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 200, 60, 14);
+        jLabel1.setBounds(50, 200, 60, 16);
 
         jLabel2.setText("Login");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 20, 70, 14);
+        jLabel2.setBounds(50, 20, 70, 16);
 
         etiquetaUsuario.setText("Usuario:");
         getContentPane().add(etiquetaUsuario);
-        etiquetaUsuario.setBounds(50, 70, 80, 14);
+        etiquetaUsuario.setBounds(50, 70, 80, 16);
 
         etiquetaContrasenia.setText("Contraseña:");
         getContentPane().add(etiquetaContrasenia);
-        etiquetaContrasenia.setBounds(50, 110, 70, 14);
+        etiquetaContrasenia.setBounds(50, 110, 70, 16);
         getContentPane().add(campoUsuario);
-        campoUsuario.setBounds(200, 70, 120, 20);
+        campoUsuario.setBounds(200, 70, 120, 24);
 
         botonIniciarSesion.setText("Iniciar sesion");
+        botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIniciarSesionActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonIniciarSesion);
-        botonIniciarSesion.setBounds(140, 160, 130, 23);
+        botonIniciarSesion.setBounds(140, 160, 130, 32);
         getContentPane().add(campoContracenia);
-        campoContracenia.setBounds(200, 100, 120, 20);
+        campoContracenia.setBounds(200, 100, 120, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,6 +106,13 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         this.registroUsuarioFrame.setVisible(true);
     }//GEN-LAST:event_botonUsuarioActionPerformed
 
+    private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+                this.menuFrame.setVisible(true);
+
+    }//GEN-LAST:event_botonIniciarSesionActionPerformed
+
     public static void main(String... args){
         
         VentanaInicialFrame ventanaInicialFrame = new VentanaInicialFrame();
@@ -111,6 +124,7 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
    
     private RegistroUsuarioFrame registroUsuarioFrame;
     private RegistrarAdministradorFrame administradorFrame;
+    private MenuFrame menuFrame;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAdministrador;

@@ -125,7 +125,7 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
 
         String resultado = logica.registrarAdministrador(usuario, password, confirmarPassword, correo);
 
-        if(resultado.equals("OK")){
+        if (resultado.equals("OK")) {
 
             campoConfirmacionPassword.setText("");
             campoCorreo.setText("");
@@ -133,9 +133,7 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
             campoUsuario.setText("");
 
             etiquetaResultado.setText("Se ha registrado el administrador correctamente !");
-        }
-        else
-        {
+        } else {
             etiquetaResultado.setText(resultado);
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
@@ -154,7 +152,6 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private VentanaInicialFrame ventanaInicialFrame;
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCancelar;

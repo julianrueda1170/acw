@@ -110,15 +110,15 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         this.registroUsuarioFrame.setVisible(true);
     }//GEN-LAST:event_botonUsuarioActionPerformed
 
-    public static void main(String... args){
-        
+    public static void main(String... args) {
+
         VentanaInicialFrame ventanaInicialFrame = new VentanaInicialFrame();
         ventanaInicialFrame.setVisible(true);
     }
     /**
      * @param args the command line arguments
      */
-   
+
     private RegistroUsuarioFrame registroUsuarioFrame;
     private RegistrarAdministradorFrame administradorFrame;
 
