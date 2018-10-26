@@ -2,7 +2,9 @@ package colegio.josefelixrestrepo.acw.basededatos;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Usuario implements Serializable {
@@ -16,6 +18,8 @@ public class Usuario implements Serializable {
     private String username;
     private String password;
     private String telefono;
+    @OneToMany(mappedBy = "usuario")
+    private List<Animal> mascotas;
 
     public String getNombre() {
         return nombre;
@@ -79,5 +83,13 @@ public class Usuario implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<Animal> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<Animal> mascotas) {
+        this.mascotas = mascotas;
     }
 }

@@ -1,11 +1,15 @@
 package colegio.josefelixrestrepo.acw.logica;
 
+import colegio.josefelixrestrepo.acw.basededatos.Animal;
 import colegio.josefelixrestrepo.acw.basededatos.ConexionDatos;
 import colegio.josefelixrestrepo.acw.basededatos.Usuario;
 import colegio.josefelixrestrepo.acw.util.ValidacionesUtil;
+import org.hibernate.Hibernate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioLogica {
 
@@ -18,7 +22,6 @@ public class UsuarioLogica {
         entityManager = ConexionDatos.entityManagerFactory.createEntityManager();
     }
 
-    //Esto es un comentario y esto es otro cambio
     public String registrarUsuario(String cedula, String nombre, String apellido, String edad, String correo, String username, String password, String confirmarPassword, String telefono){
 
         if(validacionesUtil.esVacio(cedula)){
@@ -95,6 +98,45 @@ public class UsuarioLogica {
 
         return resultado;
 
+    }
+
+    public List<Animal> obtenerAnimalesDeUsuario(String idUsuario){
+
+        Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+
+        Hibernate.initialize(usuario.getMascotas());
+
+        return usuario.getMascotas();
+    }
+
+    public String adoptarMascota(String idUsuario, String idAnimal){
+
+        String resultado = "OK";
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+
+        try {
+
+            Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+            Animal animal = entityManager.find(Animal.class, idAnimal);
+            Hibernate.initialize(usuario.getMascotas());
+            if(usuario.getMascotas() == null){
+
+                usuario.setMascotas(new ArrayList<>());
+            }
+            usuario.getMascotas().add(animal);
+
+            entityManager.merge(usuario);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+
+            resultado = "No se pudo adoptar la mascota, error inesperado";
+            e.printStackTrace();
+        }
+
+        return resultado;
     }
 
     private void insertarUsuario(Long cedula, String nombre, String apellido, int edad, String correo, String username, String password, String telefono){
