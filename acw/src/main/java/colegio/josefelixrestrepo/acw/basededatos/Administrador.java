@@ -1,11 +1,11 @@
 package colegio.josefelixrestrepo.acw.basededatos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
+@NamedQueries(
+        @NamedQuery(name = "obtenerAdministradorPorUsuarioYContrasenia", query = "SELECT a FROM Administrador a WHERE a.username = :username AND a.password = :password")
+)
 @Entity
 public class Administrador implements Serializable {
 

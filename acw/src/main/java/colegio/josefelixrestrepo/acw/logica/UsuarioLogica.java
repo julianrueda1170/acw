@@ -100,16 +100,44 @@ public class UsuarioLogica {
 
     }
 
-    public List<Animal> obtenerAnimalesDeUsuario(String idUsuario){
+    public List<Animal> obtenerAnimalesDeUsuario(Long idUsuario){
 
         Usuario usuario = entityManager.find(Usuario.class, idUsuario);
 
-        Hibernate.initialize(usuario.getMascotas());
+        List<Animal> animales = entityManager.createNamedQuery("obtenerAnimalesPorUsuario", Animal.class).setParameter("usuario", usuario).getResultList();
 
-        return usuario.getMascotas();
+        return animales;
     }
 
-    public String adoptarMascota(String idUsuario, String idAnimal){
+    public String regresarAnimal(int idAnimal){
+
+        String resultado = "OK";
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+
+        try {
+
+            Animal animal = entityManager.find(Animal.class, idAnimal);
+
+            animal.setUsuario(null);
+
+            entityManager.merge(animal);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+
+            transaction.rollback();
+
+            resultado = "Se ha presentado un problema al regresar el animal.";
+        }
+
+        return resultado;
+
+    }
+
+    public String adoptarAnimal(Long idUsuario, int idAnimal){
 
         String resultado = "OK";
         EntityTransaction transaction = entityManager.getTransaction();
@@ -124,9 +152,10 @@ public class UsuarioLogica {
 
                 usuario.setMascotas(new ArrayList<>());
             }
-            usuario.getMascotas().add(animal);
 
-            entityManager.merge(usuario);
+            animal.setUsuario(usuario);
+
+            entityManager.merge(animal);
 
             transaction.commit();
 

@@ -5,13 +5,65 @@
  */
 package colegio.josefelixrestrepo.acw.interfaz;
 
+import colegio.josefelixrestrepo.acw.basededatos.Administrador;
+import colegio.josefelixrestrepo.acw.basededatos.Usuario;
+
 /**
  *
  * @author JULIAN RUEDA
  */
 public class MenuFrame extends javax.swing.JFrame {
 
-    
+    private Administrador administrador;
+
+    private Usuario usuario;
+
+    private AnimalAdministradorPanel animalAdministradorPanel;
+
+    private AnimalesParaAdoptarPanel animalesParaAdoptarPanel;
+
+    private MisAnimalesPanel misAnimalesPanel;
+
+    public MenuFrame(Administrador administrador){
+
+        this.administrador = administrador;
+        initComponents();
+        initMenuFrame();
+        animalAdministradorPanel = new AnimalAdministradorPanel(administrador);
+        animalAdministradorPanel.setVisible(Boolean.FALSE);
+        this.getContentPane().add(animalAdministradorPanel);
+        this.animalAdministradorPanel.setBounds(0, 0, animalAdministradorPanel.getWidth(), animalAdministradorPanel.getHeight());
+    }
+
+    public MenuFrame(Usuario usuario){
+
+        this.usuario = usuario;
+        animalesParaAdoptarPanel = new AnimalesParaAdoptarPanel(usuario);
+        animalesParaAdoptarPanel.setVisible(Boolean.FALSE);
+        this.getContentPane().add(animalesParaAdoptarPanel);
+        this.animalesParaAdoptarPanel.setBounds(0, 0, animalesParaAdoptarPanel.getWidth(), animalesParaAdoptarPanel.getHeight());
+        misAnimalesPanel = new MisAnimalesPanel(usuario);
+        misAnimalesPanel.setVisible(Boolean.FALSE);
+        this.getContentPane().add(misAnimalesPanel);
+        this.misAnimalesPanel.setBounds(0, 0, misAnimalesPanel.getWidth(), misAnimalesPanel.getHeight());
+        initComponents();
+        initMenuFrame();
+    }
+
+    private void initMenuFrame(){
+
+        if(administrador != null){
+
+            verMascotasMenuItem.setVisible(Boolean.FALSE);
+            misMascotasMenuItem.setVisible(Boolean.FALSE);
+        }
+        else
+        {
+            administrarMascotasMenuItem.setVisible(Boolean.FALSE);
+        }
+        setSize(534, 547);
+        this.setLocationRelativeTo(null);
+    }
 
     /**
      * Creates new form MenuFrame
@@ -21,7 +73,7 @@ public class MenuFrame extends javax.swing.JFrame {
         initComponents();
 
 
-        setSize(500, 500);
+        setSize(534, 547);
     }
 
         
@@ -39,15 +91,12 @@ public class MenuFrame extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuInicion = new javax.swing.JMenu();
-        menuQuienesSomos = new javax.swing.JMenu();
         menuMascotas = new javax.swing.JMenu();
-        menuGatos = new javax.swing.JMenuItem();
-        menuPerros = new javax.swing.JMenuItem();
-        Contacto = new javax.swing.JMenu();
-        menuConfiguracion = new javax.swing.JMenu();
-        menuConfiguracionUsuario = new javax.swing.JMenuItem();
-        menuConfiguracionEmpleado = new javax.swing.JMenuItem();
+        administrarMascotasMenuItem = new javax.swing.JMenuItem();
+        verMascotasMenuItem = new javax.swing.JMenuItem();
+        misMascotasMenuItem = new javax.swing.JMenuItem();
+        cerrarSesionMenuItem = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
 
         jMenu1.setText("jMenu1");
 
@@ -60,50 +109,71 @@ public class MenuFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        menuInicion.setText("Inicio");
-        jMenuBar1.add(menuInicion);
-
-        menuQuienesSomos.setText("¿Quienes somos?");
-        jMenuBar1.add(menuQuienesSomos);
-
         menuMascotas.setText("Mascotas");
 
-        menuGatos.setText("Gatos");
-        menuMascotas.add(menuGatos);
-
-        menuPerros.setText("Perros");
-        menuMascotas.add(menuPerros);
-
-        jMenuBar1.add(menuMascotas);
-
-        Contacto.setText("Contacto");
-        Contacto.addActionListener(new java.awt.event.ActionListener() {
+        administrarMascotasMenuItem.setText("Administrar Mascotas");
+        administrarMascotasMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContactoActionPerformed(evt);
+                administrarMascotasMenuItemActionPerformed(evt);
             }
         });
-        jMenuBar1.add(Contacto);
+        menuMascotas.add(administrarMascotasMenuItem);
 
-        menuConfiguracion.setText("Acceso");
+        verMascotasMenuItem.setText("Ver Mascotas");
+        verMascotasMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verMascotasMenuItemActionPerformed(evt);
+            }
+        });
+        menuMascotas.add(verMascotasMenuItem);
 
-        menuConfiguracionUsuario.setText("Usuario");
-        menuConfiguracion.add(menuConfiguracionUsuario);
+        misMascotasMenuItem.setText("Mis Mascotas");
+        misMascotasMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                misMascotasMenuItemActionPerformed(evt);
+            }
+        });
+        menuMascotas.add(misMascotasMenuItem);
 
-        menuConfiguracionEmpleado.setText("Empleado");
-        menuConfiguracion.add(menuConfiguracionEmpleado);
+        cerrarSesionMenuItem.setText("Cerrar Sesion");
+        cerrarSesionMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarSesionMenuItemActionPerformed(evt);
+            }
+        });
+        menuMascotas.add(jSeparator2);
+        menuMascotas.add(cerrarSesionMenuItem);
 
-        jMenuBar1.add(menuConfiguracion);
+
+        jMenuBar1.add(menuMascotas);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ContactoActionPerformed(java.awt.event.ActionEvent evt) {
+    private void administrarMascotasMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administrarMascotasMenuItemActionPerformed
+        this.animalAdministradorPanel.setVisible(Boolean.TRUE);
+    }//GEN-LAST:event_administrarMascotasMenuItemActionPerformed
 
+    private void verMascotasMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verMascotasMenuItemActionPerformed
+        misAnimalesPanel.setVisible(Boolean.FALSE);
+        animalesParaAdoptarPanel.actualizarListadoAnimales();
+        animalesParaAdoptarPanel.setVisible(Boolean.TRUE);
+    }//GEN-LAST:event_verMascotasMenuItemActionPerformed
 
+    private void misMascotasMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misMascotasMenuItemActionPerformed
+        animalesParaAdoptarPanel.setVisible(Boolean.FALSE);
+        misAnimalesPanel.actualizarListadoAnimales();
+        misAnimalesPanel.setVisible(Boolean.TRUE);
+    }//GEN-LAST:event_misMascotasMenuItemActionPerformed
 
-    }
+    private void cerrarSesionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionMenuItemActionPerformed
+        this.setVisible(Boolean.FALSE);
+        VentanaInicialFrame ventanaInicialFrame = new VentanaInicialFrame();
+        ventanaInicialFrame.setVisible(Boolean.TRUE);
+    }//GEN-LAST:event_cerrarSesionMenuItemActionPerformed
+
         public static void main(String... args){
         
         MenuFrame menuFrame = new MenuFrame();
@@ -115,19 +185,16 @@ public class MenuFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Contacto;
+    private javax.swing.JMenuItem administrarMascotasMenuItem;
+    private javax.swing.JMenuItem cerrarSesionMenuItem;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenu menuConfiguracion;
-    private javax.swing.JMenuItem menuConfiguracionEmpleado;
-    private javax.swing.JMenuItem menuConfiguracionUsuario;
-    private javax.swing.JMenuItem menuGatos;
-    private javax.swing.JMenu menuInicion;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu menuMascotas;
-    private javax.swing.JMenuItem menuPerros;
-    private javax.swing.JMenu menuQuienesSomos;
+    private javax.swing.JMenuItem misMascotasMenuItem;
+    private javax.swing.JMenuItem verMascotasMenuItem;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,18 +8,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
-public class MascotaLogica {
+public class AnimalLogica {
 
     private ValidacionesUtil validacionesUtil;
     private EntityManager entityManager;
 
-    public MascotaLogica(){
+    public AnimalLogica(){
 
         validacionesUtil = new ValidacionesUtil();
         entityManager = ConexionDatos.entityManagerFactory.createEntityManager();
     }
 
-    public String registrarMascota(String tipoAnimal, String raza, String edad, String peso, String color, String altura){
+    public String registrarAnimal(String tipoAnimal, String raza, String edad, String peso, String color, String altura){
 
         if(validacionesUtil.esVacio(tipoAnimal)){
 
@@ -33,12 +33,12 @@ public class MascotaLogica {
 
         if(validacionesUtil.esVacio(edad) || !validacionesUtil.esNumero(edad) || Integer.parseInt(edad) < 0){
 
-            return "La edad de la mascota debe ser un numero mayor que cero";
+            return "La edad del animal debe ser un numero mayor que cero";
         }
 
         if(validacionesUtil.esVacio(peso) || !validacionesUtil.esNumero(peso) || Integer.parseInt(peso) < 0){
 
-            return "El peso de la mascota debe ser un numero mayor que cero";
+            return "El peso del animal debe ser un numero mayor que cero";
         }
 
         if(validacionesUtil.esVacio(color)){
@@ -48,18 +48,18 @@ public class MascotaLogica {
 
         if(validacionesUtil.esVacio(altura) || !validacionesUtil.esNumero(altura) || Integer.parseInt(altura) < 0){
 
-            return "La altura de la mascota debe ser un numero mayor que cero";
+            return "La altura del animal debe ser un numero mayor que cero";
         }
 
         String resultado = "OK";
 
         try {
 
-            insertarMascota(tipoAnimal, raza, edad, peso, color, altura);
+            insertarAnimal(tipoAnimal, raza, edad, peso, color, altura);
 
         } catch (Exception e) {
 
-            resultado = "No se pudo insertar la mascota, error inesperado";
+            resultado = "No se pudo insertar el animal, error inesperado";
             e.printStackTrace();
         }
 
@@ -67,14 +67,21 @@ public class MascotaLogica {
 
     }
 
-    public List<Animal> obtenerTodasLasMascotas(){
+    public List<Animal> obtenerTodosLosAnimales(){
 
         List<Animal> animales = entityManager.createNamedQuery("obtenerAnimales", Animal.class).getResultList();
 
         return animales;
     }
 
-    public String eliminarMascota(int codigoAnimal){
+    public List<Animal> obtenerTodosLosAnimalesSinAdoptar(){
+
+        List<Animal> animales = entityManager.createNamedQuery("obtenerAnimalesSinUsuario", Animal.class).getResultList();
+
+        return animales;
+    }
+
+    public String eliminarAnimal(int codigoAnimal){
 
         String resultado = "OK";
 
@@ -99,7 +106,7 @@ public class MascotaLogica {
         return resultado;
     }
 
-    private void insertarMascota(String tipoAnimal, String raza, String edad, String peso, String color, String altura){
+    private void insertarAnimal(String tipoAnimal, String raza, String edad, String peso, String color, String altura){
 
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();

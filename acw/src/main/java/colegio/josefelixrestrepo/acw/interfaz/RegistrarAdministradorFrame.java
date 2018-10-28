@@ -19,7 +19,8 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
     public RegistrarAdministradorFrame(VentanaInicialFrame ventanaInicialFrame) {
         initComponents();
         this.ventanaInicialFrame = ventanaInicialFrame;
-        setSize(500, 500);
+        setSize(400, 291);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -49,19 +50,19 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
 
         etiquetaUsuario.setText("Usuario:");
         getContentPane().add(etiquetaUsuario);
-        etiquetaUsuario.setBounds(20, 70, 130, 14);
+        etiquetaUsuario.setBounds(20, 70, 130, 15);
 
-        etiquetaPassword.setText("Contraseña");
+        etiquetaPassword.setText("Contraseña:");
         getContentPane().add(etiquetaPassword);
-        etiquetaPassword.setBounds(20, 130, 100, 14);
+        etiquetaPassword.setBounds(20, 130, 100, 15);
 
         etiquetaCorreo.setText("Correo:");
         getContentPane().add(etiquetaCorreo);
-        etiquetaCorreo.setBounds(20, 100, 130, 14);
+        etiquetaCorreo.setBounds(20, 100, 130, 15);
 
-        etiquetaConfirmarPassword.setText("Confirmar Contraseña");
+        etiquetaConfirmarPassword.setText("Confirmar Contraseña:");
         getContentPane().add(etiquetaConfirmarPassword);
-        etiquetaConfirmarPassword.setBounds(20, 160, 140, 14);
+        etiquetaConfirmarPassword.setBounds(20, 160, 190, 15);
 
         campoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,9 +70,9 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(campoUsuario);
-        campoUsuario.setBounds(160, 70, 130, 20);
+        campoUsuario.setBounds(210, 70, 130, 19);
         getContentPane().add(campoCorreo);
-        campoCorreo.setBounds(160, 100, 130, 20);
+        campoCorreo.setBounds(210, 100, 130, 19);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +81,7 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegistrar);
-        botonRegistrar.setBounds(210, 230, 90, 23);
+        botonRegistrar.setBounds(220, 220, 160, 25);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,18 +90,18 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(80, 230, 90, 23);
+        botonCancelar.setBounds(20, 220, 160, 25);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Registro Empleado");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(90, 20, 200, 29);
+        jLabel1.setBounds(90, 20, 270, 29);
         getContentPane().add(etiquetaResultado);
-        etiquetaResultado.setBounds(20, 260, 290, 20);
+        etiquetaResultado.setBounds(20, 190, 360, 20);
         getContentPane().add(campoPassword);
-        campoPassword.setBounds(160, 130, 130, 20);
+        campoPassword.setBounds(210, 130, 130, 19);
         getContentPane().add(campoConfirmacionPassword);
-        campoConfirmacionPassword.setBounds(160, 160, 130, 20);
+        campoConfirmacionPassword.setBounds(210, 160, 130, 19);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,9 +151,9 @@ public class RegistrarAdministradorFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonRegistrar;
-    private javax.swing.JTextField campoConfirmacionPassword;
+    private javax.swing.JPasswordField campoConfirmacionPassword;
     private javax.swing.JTextField campoCorreo;
-    private javax.swing.JTextField campoPassword;
+    private javax.swing.JPasswordField campoPassword;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel etiquetaConfirmarPassword;
     private javax.swing.JLabel etiquetaCorreo;

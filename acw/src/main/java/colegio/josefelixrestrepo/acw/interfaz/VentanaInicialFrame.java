@@ -5,6 +5,10 @@
  */
 package colegio.josefelixrestrepo.acw.interfaz;
 
+import colegio.josefelixrestrepo.acw.basededatos.Administrador;
+import colegio.josefelixrestrepo.acw.basededatos.Usuario;
+import colegio.josefelixrestrepo.acw.logica.IniciarSesionLogica;
+
 /**
  *
  * @author JULIAN RUEDA
@@ -18,7 +22,8 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         initComponents();
         registroUsuarioFrame = new RegistroUsuarioFrame(this);
         administradorFrame = new RegistrarAdministradorFrame(this);
-        setSize(500, 500);
+        setSize(476, 249);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,8 +42,9 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         etiquetaUsuario = new javax.swing.JLabel();
         etiquetaContrasenia = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
-        campoContracenia = new javax.swing.JTextField();
         botonIniciarSesion = new javax.swing.JButton();
+        campoContracenia = new javax.swing.JPasswordField();
+        respuestaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -50,7 +56,7 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonUsuario);
-        botonUsuario.setBounds(40, 240, 110, 23);
+        botonUsuario.setBounds(30, 160, 190, 25);
 
         botonAdministrador.setText("Administrador");
         botonAdministrador.addActionListener(new java.awt.event.ActionListener() {
@@ -59,37 +65,38 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonAdministrador);
-        botonAdministrador.setBounds(230, 240, 130, 23);
+        botonAdministrador.setBounds(270, 160, 190, 25);
 
         jLabel1.setText("Registar");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 200, 60, 14);
+        jLabel1.setBounds(30, 130, 120, 15);
 
         jLabel2.setText("Login");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 20, 70, 14);
+        jLabel2.setBounds(30, 20, 70, 15);
 
         etiquetaUsuario.setText("Usuario:");
         getContentPane().add(etiquetaUsuario);
-        etiquetaUsuario.setBounds(50, 70, 80, 14);
+        etiquetaUsuario.setBounds(30, 50, 120, 15);
 
         etiquetaContrasenia.setText("Contraseña:");
         getContentPane().add(etiquetaContrasenia);
-        etiquetaContrasenia.setBounds(50, 110, 70, 14);
+        etiquetaContrasenia.setBounds(30, 75, 120, 20);
         getContentPane().add(campoUsuario);
-        campoUsuario.setBounds(200, 70, 120, 20);
-
-        campoContracenia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoContraceniaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(campoContracenia);
-        campoContracenia.setBounds(200, 100, 120, 20);
+        campoUsuario.setBounds(160, 50, 120, 19);
 
         botonIniciarSesion.setText("Iniciar sesion");
+        botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIniciarSesionActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonIniciarSesion);
-        botonIniciarSesion.setBounds(140, 160, 130, 23);
+        botonIniciarSesion.setBounds(300, 50, 160, 25);
+        getContentPane().add(campoContracenia);
+        campoContracenia.setBounds(160, 80, 120, 19);
+        getContentPane().add(respuestaLabel);
+        respuestaLabel.setBounds(30, 110, 430, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,6 +117,44 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
         this.registroUsuarioFrame.setVisible(true);
     }//GEN-LAST:event_botonUsuarioActionPerformed
 
+    private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt){
+
+
+        String username = campoUsuario.getText();
+        String password = campoContracenia.getText();
+
+        IniciarSesionLogica iniciarSesionLogica = new IniciarSesionLogica();
+
+        try {
+
+            Administrador administrador = iniciarSesionLogica.iniciarSesionConAdministrador(username, password);
+
+            if(administrador != null){
+
+                MenuFrame menuFrame = new MenuFrame(administrador);
+                menuFrame.setVisible(Boolean.TRUE);
+                this.setVisible(Boolean.FALSE);
+            }
+
+            Usuario usuario = iniciarSesionLogica.iniciarSesionConUsuario(username, password);
+
+            if(usuario != null){
+
+                MenuFrame menuFrame = new MenuFrame(usuario);
+                menuFrame.setVisible(Boolean.TRUE);
+                this.setVisible(Boolean.FALSE);
+            }
+            else
+            {
+                respuestaLabel.setText("El usuario o administrador no existe con las credenciales ingresadas.");
+            }
+
+        } catch (Exception e) {
+
+            respuestaLabel.setText(e.getMessage());
+        }
+    }
+
     public static void main(String... args) {
 
         VentanaInicialFrame ventanaInicialFrame = new VentanaInicialFrame();
@@ -126,11 +171,12 @@ public class VentanaInicialFrame extends javax.swing.JFrame {
     private javax.swing.JButton botonAdministrador;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JButton botonUsuario;
-    private javax.swing.JTextField campoContracenia;
+    private javax.swing.JPasswordField campoContracenia;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel etiquetaContrasenia;
     private javax.swing.JLabel etiquetaUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel respuestaLabel;
     // End of variables declaration//GEN-END:variables
 }

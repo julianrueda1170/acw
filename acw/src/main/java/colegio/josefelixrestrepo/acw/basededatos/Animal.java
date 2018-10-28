@@ -1,10 +1,12 @@
 package colegio.josefelixrestrepo.acw.basededatos;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @NamedQueries({
         @NamedQuery(name = "obtenerAnimales", query = "SELECT a FROM Animal a"),
-        @NamedQuery(name = "obtenerAnimalesSinUsuario", query = "SELECT a FROM Animal a WHERE a.usuario = null")
+        @NamedQuery(name = "obtenerAnimalesSinUsuario", query = "SELECT a FROM Animal a WHERE a.usuario = null"),
+        @NamedQuery(name = "obtenerAnimalesPorUsuario", query = "SELECT a FROM Animal a WHERE a.usuario = :usuario")
 })
 @Entity
 public class Animal {
@@ -83,5 +85,32 @@ public class Animal {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "codigoAnimal=" + codigoAnimal +
+                ", tipoAnimal='" + tipoAnimal + '\'' +
+                ", raza='" + raza + '\'' +
+                ", edad=" + edad +
+                ", peso=" + peso +
+                ", color='" + color + '\'' +
+                ", altura=" + altura +
+                ", usuario=" + usuario +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal)) return false;
+        Animal animal = (Animal) o;
+        return getCodigoAnimal() == animal.getCodigoAnimal();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCodigoAnimal());
     }
 }

@@ -19,7 +19,8 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
     public RegistroUsuarioFrame(VentanaInicialFrame ventanaInicialFrame) {
         initComponents();
         this.ventanaInicialFrame = ventanaInicialFrame;
-        setSize(500, 500);
+        setSize(338, 391);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -57,29 +58,29 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
 
         etiquetaNombres.setText("Nombres:");
         getContentPane().add(etiquetaNombres);
-        etiquetaNombres.setBounds(20, 50, 70, 14);
+        etiquetaNombres.setBounds(20, 50, 70, 15);
 
         etiquetaApellidos.setText("Apellidos:");
         getContentPane().add(etiquetaApellidos);
-        etiquetaApellidos.setBounds(20, 80, 70, 14);
+        etiquetaApellidos.setBounds(20, 80, 70, 15);
 
         etiquetaEdad.setText("Edad:");
         getContentPane().add(etiquetaEdad);
-        etiquetaEdad.setBounds(20, 140, 70, 14);
+        etiquetaEdad.setBounds(20, 140, 70, 15);
 
         etiquetaCorreo.setText("Correo:");
         getContentPane().add(etiquetaCorreo);
-        etiquetaCorreo.setBounds(20, 200, 70, 14);
+        etiquetaCorreo.setBounds(20, 200, 70, 15);
 
         etiquetaContraeña.setText("Contraseña:");
         getContentPane().add(etiquetaContraeña);
-        etiquetaContraeña.setBounds(20, 230, 80, 14);
+        etiquetaContraeña.setBounds(20, 230, 110, 15);
         getContentPane().add(campoCorreo);
-        campoCorreo.setBounds(100, 200, 180, 20);
+        campoCorreo.setBounds(130, 200, 180, 19);
         getContentPane().add(campoEdad);
-        campoEdad.setBounds(100, 140, 180, 20);
+        campoEdad.setBounds(130, 140, 180, 19);
         getContentPane().add(campoApellidos);
-        campoApellidos.setBounds(100, 80, 180, 20);
+        campoApellidos.setBounds(130, 80, 180, 20);
 
         campoNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,17 +88,17 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(campoNombres);
-        campoNombres.setBounds(100, 50, 180, 20);
+        campoNombres.setBounds(130, 50, 180, 19);
         getContentPane().add(campoCedula);
-        campoCedula.setBounds(100, 170, 180, 20);
+        campoCedula.setBounds(130, 170, 180, 19);
 
         etiquetaCedula.setText("Cedula:");
         getContentPane().add(etiquetaCedula);
-        etiquetaCedula.setBounds(20, 170, 70, 14);
+        etiquetaCedula.setBounds(20, 170, 70, 15);
 
         etiquetaTelefono.setText("Telefono:");
         getContentPane().add(etiquetaTelefono);
-        etiquetaTelefono.setBounds(20, 260, 70, 14);
+        etiquetaTelefono.setBounds(20, 260, 70, 15);
 
         campoTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +106,7 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(campoTelefono);
-        campoTelefono.setBounds(100, 260, 180, 20);
+        campoTelefono.setBounds(130, 260, 180, 19);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +115,7 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(60, 300, 100, 23);
+        botonCancelar.setBounds(20, 300, 110, 25);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,16 +124,16 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegistrar);
-        botonRegistrar.setBounds(220, 300, 110, 23);
+        botonRegistrar.setBounds(200, 300, 110, 25);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Registro usuario");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(110, 0, 200, 40);
+        jLabel8.setBounds(60, 0, 200, 40);
 
         etiquetaUsuario.setText("Usuario:");
         getContentPane().add(etiquetaUsuario);
-        etiquetaUsuario.setBounds(20, 110, 70, 14);
+        etiquetaUsuario.setBounds(20, 110, 70, 15);
 
         campoUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,14 +141,14 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(campoUsername);
-        campoUsername.setBounds(100, 110, 180, 20);
+        campoUsername.setBounds(130, 110, 180, 19);
         getContentPane().add(etiquetaResultado);
         etiquetaResultado.setBounds(20, 330, 300, 20);
         getContentPane().add(campoContrasenia);
-        campoContrasenia.setBounds(100, 230, 180, 20);
+        campoContrasenia.setBounds(130, 230, 180, 19);
 
         pack();
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     private void campoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombresActionPerformed
         // TODO add your handling code here:
@@ -187,7 +188,7 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
         {
             etiquetaResultado.setText(resultado);
         }
-    }
+    }//GEN-LAST:event_botonRegistrarActionPerformed
 
     private void campoUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsernameActionPerformed
         // TODO add your handling code here:
@@ -209,7 +210,7 @@ public class RegistroUsuarioFrame extends javax.swing.JFrame {
     private javax.swing.JButton botonRegistrar;
     private javax.swing.JTextField campoApellidos;
     private javax.swing.JTextField campoCedula;
-    private javax.swing.JTextField campoContrasenia;
+    private javax.swing.JPasswordField campoContrasenia;
     private javax.swing.JTextField campoCorreo;
     private javax.swing.JTextField campoEdad;
     private javax.swing.JTextField campoNombres;

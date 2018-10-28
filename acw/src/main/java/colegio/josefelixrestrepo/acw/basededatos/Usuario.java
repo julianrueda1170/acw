@@ -1,11 +1,12 @@
 package colegio.josefelixrestrepo.acw.basededatos;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
+@NamedQueries(
+        @NamedQuery(name = "obtenerUsuarioPorUsernameYContrasenia", query = "SELECT u FROM Usuario u WHERE u.username = :username AND u.password = :password"))
 @Entity
 public class Usuario implements Serializable {
 
@@ -91,5 +92,18 @@ public class Usuario implements Serializable {
 
     public void setMascotas(List<Animal> mascotas) {
         this.mascotas = mascotas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario)) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(getCedula(), usuario.getCedula());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCedula());
     }
 }
