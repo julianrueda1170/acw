@@ -89,16 +89,13 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "codigoAnimal=" + codigoAnimal +
-                ", tipoAnimal='" + tipoAnimal + '\'' +
-                ", raza='" + raza + '\'' +
-                ", edad=" + edad +
-                ", peso=" + peso +
-                ", color='" + color + '\'' +
-                ", altura=" + altura +
-                ", usuario=" + usuario +
-                '}';
+        return "Tipo Animal = " + tipoAnimal +
+                ", Raza = " + raza +
+                ", Edad = " + edad +
+                ", Peso = " + peso +
+                ", Color = " + color +
+                ", Altura = " + altura +
+                ", Usuario = " + (usuario != null ? usuario.getNombre() : "Sin Usuario");
     }
 
     @Override

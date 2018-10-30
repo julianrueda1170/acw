@@ -38,7 +38,7 @@ public class MisAnimalesPanel extends javax.swing.JPanel {
         initComponents();
         listaAnimalesAdoptados.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         actualizarListadoAnimales();
-        setSize(534, 333);
+        setSize(534, 487);
     }
 
     public void actualizarListadoAnimales(){

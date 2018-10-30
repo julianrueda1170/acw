@@ -35,7 +35,7 @@ public class AnimalesParaAdoptarPanel extends javax.swing.JPanel {
         initComponents();
         listaAnimales.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         actualizarListadoAnimales();
-        setSize(534, 311);
+        setSize(534, 487);
     }
 
     public AnimalesParaAdoptarPanel() {

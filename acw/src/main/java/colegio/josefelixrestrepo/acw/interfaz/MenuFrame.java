@@ -27,12 +27,12 @@ public class MenuFrame extends javax.swing.JFrame {
     public MenuFrame(Administrador administrador){
 
         this.administrador = administrador;
-        initComponents();
-        initMenuFrame();
         animalAdministradorPanel = new AnimalAdministradorPanel(administrador);
         animalAdministradorPanel.setVisible(Boolean.FALSE);
         this.getContentPane().add(animalAdministradorPanel);
         this.animalAdministradorPanel.setBounds(0, 0, animalAdministradorPanel.getWidth(), animalAdministradorPanel.getHeight());
+        initComponents();
+        initMenuFrame();
     }
 
     public MenuFrame(Usuario usuario){
@@ -62,6 +62,7 @@ public class MenuFrame extends javax.swing.JFrame {
             administrarMascotasMenuItem.setVisible(Boolean.FALSE);
         }
         setSize(534, 547);
+        this.setResizable(Boolean.FALSE);
         this.setLocationRelativeTo(null);
     }
 
@@ -90,6 +91,8 @@ public class MenuFrame extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMascotas = new javax.swing.JMenu();
         administrarMascotasMenuItem = new javax.swing.JMenuItem();
@@ -108,6 +111,12 @@ public class MenuFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(50, 50, 0, 2);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/logo.jpeg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 0, 480, 480);
 
         menuMascotas.setText("Mascotas");
 
@@ -141,9 +150,8 @@ public class MenuFrame extends javax.swing.JFrame {
                 cerrarSesionMenuItemActionPerformed(evt);
             }
         });
-        menuMascotas.add(jSeparator2);
         menuMascotas.add(cerrarSesionMenuItem);
-
+        menuMascotas.add(jSeparator2);
 
         jMenuBar1.add(menuMascotas);
 
@@ -187,11 +195,13 @@ public class MenuFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem administrarMascotasMenuItem;
     private javax.swing.JMenuItem cerrarSesionMenuItem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu menuMascotas;
     private javax.swing.JMenuItem misMascotasMenuItem;
